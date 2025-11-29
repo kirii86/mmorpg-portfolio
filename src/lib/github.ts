@@ -47,25 +47,35 @@ async function fetchGitHubAPI(url: string): Promise<Response> {
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   }
 
-  const response = await fetch(url, {
-    headers,
-    // Configuración para mejorar compatibilidad con Cloudflare
-    signal: AbortSignal.timeout(10000), // Timeout de 10 segundos
-  });
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-  // Verificar rate limiting
-  const remaining = response.headers.get("X-RateLimit-Remaining");
-  const resetTime = response.headers.get("X-RateLimit-Reset");
+    const response = await fetch(url, {
+      headers,
+      signal: controller.signal,
+    });
 
-  if (remaining && parseInt(remaining) < 10) {
-    console.warn(
-      `GitHub API: Only ${remaining} requests remaining. Resets at ${new Date(
-        parseInt(resetTime || "0") * 1000
-      )}`
-    );
+    clearTimeout(timeoutId);
+
+    // Verificar rate limiting
+    const remaining = response.headers.get("X-RateLimit-Remaining");
+    const resetTime = response.headers.get("X-RateLimit-Reset");
+
+    if (remaining && parseInt(remaining) < 10) {
+      console.warn(
+        `GitHub API: Only ${remaining} requests remaining. Resets at ${new Date(
+          parseInt(resetTime || "0") * 1000
+        )}`
+      );
+    }
+
+    return response;
+  } catch (error) {
+    console.error("Error in fetchGitHubAPI:", error);
+    // Return a failed response object instead of throwing
+    return new Response(null, { status: 500, statusText: "Fetch failed" });
   }
-
-  return response;
 }
 
 export async function fetchGitHubRepos(
@@ -102,13 +112,13 @@ export async function fetchGitHubRepos(
       "Using fallback data - this indicates an API issue in production"
     );
 
-    // Fallback completo con todos los proyectos reales de K1riDev
+    // Fallback completo con todos los proyectos reales de kirii86
     return [
       {
         id: 4,
         name: "codextreme-web",
         description: "Modern web development agency website",
-        html_url: "https://github.com/K1riDev/codextreme-web",
+        html_url: "https://github.com/kirii86/codextreme-web",
         homepage: null,
         language: "Astro",
         stargazers_count: 15,
@@ -120,7 +130,7 @@ export async function fetchGitHubRepos(
         id: 15,
         name: "kc_adminV2",
         description: "Advanced admin system for game servers",
-        html_url: "https://github.com/K1riDev/kc_adminV2",
+        html_url: "https://github.com/kirii86/kc_adminV2",
         homepage: null,
         language: "Lua",
         stargazers_count: 7,
@@ -132,7 +142,7 @@ export async function fetchGitHubRepos(
         id: 14,
         name: "Arctic-Multipurpose-Bot",
         description: "Multipurpose Discord bot with various features",
-        html_url: "https://github.com/K1riDev/Arctic-Multipurpose-Bot",
+        html_url: "https://github.com/kirii86/Arctic-Multipurpose-Bot",
         homepage: null,
         language: "JavaScript",
         stargazers_count: 2,
@@ -144,7 +154,7 @@ export async function fetchGitHubRepos(
         id: 1,
         name: "mmorpg-portfolio",
         description: "My personal portfolio website built with Astro",
-        html_url: "https://github.com/K1riDev/mmorpg-portfolio",
+        html_url: "https://github.com/kirii86/mmorpg-portfolio",
         homepage: null,
         language: "Astro",
         stargazers_count: 0,
@@ -156,7 +166,7 @@ export async function fetchGitHubRepos(
         id: 2,
         name: "last_oasis_server_guide_es",
         description: "Complete guide for Last Oasis private servers in Spanish",
-        html_url: "https://github.com/K1riDev/last_oasis_server_guide_es",
+        html_url: "https://github.com/kirii86/last_oasis_server_guide_es",
         homepage: null,
         language: "HTML",
         stargazers_count: 0,
@@ -168,7 +178,7 @@ export async function fetchGitHubRepos(
         id: 5,
         name: "VIPPlaytime",
         description: "VIP system with playtime tracking for game servers",
-        html_url: "https://github.com/K1riDev/VIPPlaytime",
+        html_url: "https://github.com/kirii86/VIPPlaytime",
         homepage: null,
         language: "C#",
         stargazers_count: 0,
@@ -180,7 +190,7 @@ export async function fetchGitHubRepos(
         id: 6,
         name: "codeflow-portfolio",
         description: "Previous version of my portfolio website",
-        html_url: "https://github.com/K1riDev/codeflow-portfolio",
+        html_url: "https://github.com/kirii86/codeflow-portfolio",
         homepage: null,
         language: "TypeScript",
         stargazers_count: 0,
@@ -192,7 +202,7 @@ export async function fetchGitHubRepos(
         id: 7,
         name: "CodePortfolio",
         description: "Another portfolio iteration",
-        html_url: "https://github.com/K1riDev/CodePortfolio",
+        html_url: "https://github.com/kirii86/CodePortfolio",
         homepage: null,
         language: "JavaScript",
         stargazers_count: 0,
@@ -204,7 +214,7 @@ export async function fetchGitHubRepos(
         id: 9,
         name: "Apolo-GYM",
         description: "Gym management website project",
-        html_url: "https://github.com/K1riDev/Apolo-GYM",
+        html_url: "https://github.com/kirii86/Apolo-GYM",
         homepage: null,
         language: "CSS",
         stargazers_count: 0,
@@ -216,7 +226,7 @@ export async function fetchGitHubRepos(
         id: 10,
         name: "React-Portfolio",
         description: "Portfolio built with React and TypeScript",
-        html_url: "https://github.com/K1riDev/React-Portfolio",
+        html_url: "https://github.com/kirii86/React-Portfolio",
         homepage: null,
         language: "TypeScript",
         stargazers_count: 0,
@@ -228,7 +238,7 @@ export async function fetchGitHubRepos(
         id: 12,
         name: "Nuevo-Portfolio",
         description: "New portfolio iteration in JavaScript",
-        html_url: "https://github.com/K1riDev/Nuevo-Portfolio",
+        html_url: "https://github.com/kirii86/Nuevo-Portfolio",
         homepage: null,
         language: "JavaScript",
         stargazers_count: 0,
@@ -240,7 +250,7 @@ export async function fetchGitHubRepos(
         id: 13,
         name: "ArcticOficcial",
         description: "Official website for Arctic bot",
-        html_url: "https://github.com/K1riDev/ArcticOficcial",
+        html_url: "https://github.com/kirii86/ArcticOficcial",
         homepage: null,
         language: "JavaScript",
         stargazers_count: 0,
@@ -266,7 +276,7 @@ export async function fetchGitHubUser(username: string): Promise<GitHubUser> {
     // Fallback con datos básicos del usuario
     return {
       login: username,
-      name: "K1riDev",
+      name: "kirii86",
       bio: "Passionate developer creating innovative solutions",
       public_repos: 5,
       followers: 10,
@@ -299,6 +309,9 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
     );
 
     if (!response.ok) {
+      console.warn(
+        `GitHub API returned status ${response.status}, using fallback data`
+      );
       throw new Error("Failed to fetch repositories");
     }
 

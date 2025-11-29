@@ -12,7 +12,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
   try {
     console.log('Starting GitHub repos fetch for projects page (EN)');
     // Username real de GitHub
-    const githubRepos = await fetchGitHubRepos('K1riDev');
+    const githubRepos = await fetchGitHubRepos('kirii86');
     console.log(`Fetched ${githubRepos.length} GitHub repos`);
 
     // Agregar proyectos privados destacados
@@ -52,8 +52,8 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
     console.log(`Total repos (including private): ${allRepos.length}`);
 
     // Filtrar repositorio del perfil (README del usuario)
-    const filteredRepos = allRepos.filter(repo => repo.name !== 'K1riDev');
-    console.log(`Filtered repos (excluding K1riDev profile): ${filteredRepos.length}`);
+    const filteredRepos = allRepos.filter(repo => repo.name !== 'kirii86');
+    console.log(`Filtered repos (excluding kirii86 profile): ${filteredRepos.length}`);
 
     const finalRepos = filteredRepos.sort((a, b) => {
       // Los proyectos privados van primero
@@ -69,7 +69,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
     return finalRepos;
   } catch (error) {
     console.error('Error in getGitHubRepos (EN):', error);
-    // Fallback con proyectos reales de K1riDev
+    // Fallback con proyectos reales de kirii86
     return [
       {
         id: 999999,
@@ -103,7 +103,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 789766779,
         name: 'codextreme-web',
         description: 'Modern competitive programming platform built with Astro, TypeScript and TailwindCSS. Features real-time leaderboards, contest management, and comprehensive problem solving environment.',
-        html_url: 'https://github.com/K1riDev/codextreme-web',
+        html_url: 'https://github.com/kirii86/codextreme-web',
         homepage: null,
         language: 'Astro',
         stargazers_count: 0,
@@ -116,7 +116,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 789766889,
         name: 'last_oasis_server_guide_es',
         description: 'Complete guide for setting up and managing Last Oasis dedicated servers in Spanish. Includes configuration, mods, and administration tips.',
-        html_url: 'https://github.com/K1riDev/last_oasis_server_guide_es',
+        html_url: 'https://github.com/kirii86/last_oasis_server_guide_es',
         homepage: null,
         language: 'Markdown',
         stargazers_count: 0,
@@ -129,7 +129,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 789766999,
         name: 'codeflow-portfolio',
         description: 'Modern developer portfolio showcasing projects and skills with smooth animations and responsive design.',
-        html_url: 'https://github.com/K1riDev/codeflow-portfolio',
+        html_url: 'https://github.com/kirii86/codeflow-portfolio',
         homepage: null,
         language: 'HTML',
         stargazers_count: 0,
@@ -142,7 +142,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 789767109,
         name: 'CodePortfolio',
         description: 'Clean and professional portfolio website showcasing development projects and technical skills.',
-        html_url: 'https://github.com/K1riDev/CodePortfolio',
+        html_url: 'https://github.com/kirii86/CodePortfolio',
         homepage: null,
         language: 'HTML',
         stargazers_count: 0,
@@ -155,7 +155,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 789767219,
         name: 'VIPPlaytime',
         description: 'Minecraft plugin for managing VIP player playtime with rewards and statistics tracking.',
-        html_url: 'https://github.com/K1riDev/VIPPlaytime',
+        html_url: 'https://github.com/kirii86/VIPPlaytime',
         homepage: null,
         language: 'Java',
         stargazers_count: 0,
@@ -168,7 +168,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 789767329,
         name: 'Personal-Web-Astro',
         description: 'Personal website built with Astro framework featuring modern design and fast performance.',
-        html_url: 'https://github.com/K1riDev/Personal-Web-Astro',
+        html_url: 'https://github.com/kirii86/Personal-Web-Astro',
         homepage: null,
         language: 'Astro',
         stargazers_count: 0,
@@ -181,7 +181,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 789767439,
         name: 'Apolo-GYM',
         description: 'Comprehensive gym management system with member tracking, workout plans, and payment management.',
-        html_url: 'https://github.com/K1riDev/Apolo-GYM',
+        html_url: 'https://github.com/kirii86/Apolo-GYM',
         homepage: null,
         language: 'PHP',
         stargazers_count: 0,
@@ -194,7 +194,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 789767549,
         name: 'React-Portfolio',
         description: 'Interactive portfolio built with React showcasing modern web development skills and projects.',
-        html_url: 'https://github.com/K1riDev/React-Portfolio',
+        html_url: 'https://github.com/kirii86/React-Portfolio',
         homepage: null,
         language: 'JavaScript',
         stargazers_count: 0,
@@ -320,7 +320,7 @@ const repos = await getGitHubRepos();
       <!-- GitHub link -->
       <div class="text-center mt-16">
         <a
-          href="https://github.com/K1riDev"
+          href="https://github.com/kirii86"
           target="_blank"
           rel="noopener noreferrer"
           class="mmorpg-button inline-flex items-center space-x-3"

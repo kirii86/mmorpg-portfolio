@@ -26,7 +26,7 @@ A personal portfolio with MMORPG-inspired design, built with Astro 5.10+ and Tai
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/K1riDev/mmorpg-portfolio.git
+   git clone https://github.com/kirii86/mmorpg-portfolio.git
    cd mmorpg-portfolio
    ```
 
@@ -86,7 +86,7 @@ With elements such as:
 ## 📞 Contact
 
 - **Developer**: KiriDev
-- **GitHub**: [github.com/K1riDev](https://github.com/K1riDev)
+- **GitHub**: [github.com/kirii86](https://github.com/kirii86)
 - **Email**: [kiridev.contact@gmail.com](mailto:kiridev.contact@gmail.com)
 
 ## ⭐ Support the Project
@@ -100,6 +100,6 @@ Your support helps me continue creating awesome projects like this one! 🚀
 
 ---
 
-**Made with ❤️ and ⚡ by [KiriDev](https://github.com/K1riDev)**
+**Made with ❤️ and ⚡ by [kirii86](https://github.com/kirii86)**
 
 ---

@@ -11,14 +11,14 @@
     "deploy:preview": "pnpm build && wrangler pages deploy dist --compatibility-date=2024-09-23"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.4.1",
+    "@astrojs/sitemap": "^3.6.0",
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.11.0",
+    "astro": "^5.16.2",
     "gsap": "^3.13.0",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@astrojs/cloudflare": "^12.6.0",
+    "@astrojs/cloudflare": "^12.6.12",
     "wrangler": "^4.23.0"
   }
 }

@@ -12,7 +12,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
   try {
     console.log('Starting GitHub repos fetch for projects page (ES)');
     // Username real de GitHub
-    const githubRepos = await fetchGitHubRepos('K1riDev');
+    const githubRepos = await fetchGitHubRepos('kirii86');
     console.log(`Fetched ${githubRepos.length} GitHub repos`);
 
     // Agregar proyectos privados destacados
@@ -52,8 +52,8 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
     console.log(`Total repos (including private): ${allRepos.length}`);
 
     // Filtrar repositorio del perfil (README del usuario)
-    const filteredRepos = allRepos.filter(repo => repo.name !== 'K1riDev');
-    console.log(`Filtered repos (excluding K1riDev profile): ${filteredRepos.length}`);
+    const filteredRepos = allRepos.filter(repo => repo.name !== 'kirii86');
+    console.log(`Filtered repos (excluding kirii86 profile): ${filteredRepos.length}`);
 
     const finalRepos = filteredRepos.sort((a, b) => {
       // Los proyectos privados van primero
@@ -103,7 +103,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 922384269,
         name: 'codextreme-web',
         description: '🌐 CodeXtreme Web - Website built with Astro and Tailwind for easily downloading the CodeXtremeOS ISO.',
-        html_url: 'https://github.com/K1riDev/codextreme-web',
+        html_url: 'https://github.com/kirii86/codextreme-web',
         homepage: 'https://codextreme.me',
         language: 'Astro',
         stargazers_count: 15,
@@ -116,8 +116,8 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 958045746,
         name: 'last_oasis_server_guide_es',
         description: 'Guía completa en español para configurar y administrar servidores de Last Oasis',
-        html_url: 'https://github.com/K1riDev/last_oasis_server_guide_es',
-        homepage: 'https://k1ridev.github.io/last_oasis_server_guide_es/',
+        html_url: 'https://github.com/kirii86/last_oasis_server_guide_es',
+        homepage: 'https://kirii86.github.io/last_oasis_server_guide_es/',
         language: 'HTML',
         stargazers_count: 0,
         forks_count: 0,
@@ -129,7 +129,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 808304845,
         name: 'codeflow-portfolio',
         description: 'Portfolio creado con Next.js, Tailwind CSS y Framer Motion',
-        html_url: 'https://github.com/K1riDev/codeflow-portfolio',
+        html_url: 'https://github.com/kirii86/codeflow-portfolio',
         homepage: 'https://flowportfolio.netlify.app/',
         language: 'TypeScript',
         stargazers_count: 0,
@@ -142,7 +142,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 806255992,
         name: 'CodePortfolio',
         description: 'Portfolio creado con React y Bootstrap',
-        html_url: 'https://github.com/K1riDev/CodePortfolio',
+        html_url: 'https://github.com/kirii86/CodePortfolio',
         homepage: 'https://codeportdev.netlify.app/',
         language: 'JavaScript',
         stargazers_count: 0,
@@ -155,7 +155,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 822151505,
         name: 'VIPPlaytime',
         description: 'Otorga el grupo VIP a los jugadores después de cierto tiempo de juego',
-        html_url: 'https://github.com/K1riDev/VIPPlaytime',
+        html_url: 'https://github.com/kirii86/VIPPlaytime',
         homepage: null,
         language: 'C#',
         stargazers_count: 0,
@@ -168,7 +168,7 @@ async function getGitHubRepos(): Promise<GitHubRepo[]> {
         id: 702281654,
         name: 'Personal-Web-Astro',
         description: 'Website personal construido con Astro y diseño moderno',
-        html_url: 'https://github.com/K1riDev/Personal-Web-Astro',
+        html_url: 'https://github.com/kirii86/Personal-Web-Astro',
         homepage: 'https://oscar-web-astro.vercel.app/',
         language: 'Astro',
         stargazers_count: 1,
@@ -297,7 +297,7 @@ const repos = await getGitHubRepos();
       <!-- GitHub link -->
       <div class="text-center mt-16">
         <a
-          href="https://github.com/K1riDev"
+          href="https://github.com/kirii86"
           target="_blank"
           rel="noopener noreferrer"
           class="mmorpg-button inline-flex items-center space-x-3"
